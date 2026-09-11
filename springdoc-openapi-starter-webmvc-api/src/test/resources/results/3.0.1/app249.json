@@ -105,6 +105,19 @@
         }
       },
       "PageHelloWorld_Hello": {
+        "required": [
+          "content",
+          "empty",
+          "first",
+          "last",
+          "number",
+          "numberOfElements",
+          "pageable",
+          "size",
+          "sort",
+          "totalElements",
+          "totalPages"
+        ],
         "type": "object",
         "properties": {
           "totalPages": {

@@ -312,7 +312,20 @@
           "empty": {
             "type": "boolean"
           }
-        }
+        },
+        "required": [
+          "content",
+          "empty",
+          "first",
+          "last",
+          "number",
+          "numberOfElements",
+          "pageable",
+          "size",
+          "sort",
+          "totalElements",
+          "totalPages"
+        ]
       },
       "PageableObject": {
         "type": "object",
@@ -398,7 +411,20 @@
           "empty": {
             "type": "boolean"
           }
-        }
+        },
+        "required": [
+          "content",
+          "empty",
+          "first",
+          "last",
+          "number",
+          "numberOfElements",
+          "pageable",
+          "size",
+          "sort",
+          "totalElements",
+          "totalPages"
+        ]
       },
       "UserDto": {
         "type": "object",
@@ -455,7 +481,20 @@
           "empty": {
             "type": "boolean"
           }
-        }
+        },
+        "required": [
+          "content",
+          "empty",
+          "first",
+          "last",
+          "number",
+          "numberOfElements",
+          "pageable",
+          "size",
+          "sort",
+          "totalElements",
+          "totalPages"
+        ]
       },
       "PageDummyListString": {
         "type": "object",
@@ -501,7 +540,20 @@
           "empty": {
             "type": "boolean"
           }
-        }
+        },
+        "required": [
+          "content",
+          "empty",
+          "first",
+          "last",
+          "number",
+          "numberOfElements",
+          "pageable",
+          "size",
+          "sort",
+          "totalElements",
+          "totalPages"
+        ]
       },
       "DummyPageString": {
         "type": "object",
