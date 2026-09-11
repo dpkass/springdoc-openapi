@@ -123,7 +123,7 @@ public class PageOpenAPIConverter implements ModelConverter {
 		Schema schema = (chain.hasNext()) ? chain.next().resolve(type, context, chain) : null;
 
 		if (isPageType && !replacePageWithPagedModel)
-			sortPageSchemaProperties(schema, context);
+			customizePageSchema(schema, context);
 		return schema;
 	}
 
@@ -161,12 +161,12 @@ public class PageOpenAPIConverter implements ModelConverter {
 	}
 
 	/**
-	 * Sort page schema properties.
+	 * Require and sort page schema properties.
 	 *
 	 * @param schema  the schema
 	 * @param context the context
 	 */
-	private void sortPageSchemaProperties(Schema schema, ModelConverterContext context) {
+	private void customizePageSchema(Schema schema, ModelConverterContext context) {
 		Schema pageSchema = resolveReferencedSchema(schema, context);
 		if (pageSchema == null || pageSchema.getProperties() == null)
 			return;
@@ -179,6 +179,7 @@ public class PageOpenAPIConverter implements ModelConverter {
 		PAGE_PROPERTY_ORDER.forEach(property -> sortedProperties.put(property, properties.get(property)));
 		properties.forEach(sortedProperties::putIfAbsent);
 		pageSchema.setProperties(sortedProperties);
+		pageSchema.setRequired(PAGE_PROPERTY_ORDER);
 	}
 
 	/**

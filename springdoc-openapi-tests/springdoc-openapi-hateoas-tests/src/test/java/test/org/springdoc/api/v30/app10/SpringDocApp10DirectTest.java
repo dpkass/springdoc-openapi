@@ -33,6 +33,7 @@ import test.org.springdoc.api.v30.AbstractSpringDocTest;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -47,6 +48,9 @@ public class SpringDocApp10DirectTest extends AbstractSpringDocTest {
 		mockMvc.perform(get(Constants.DEFAULT_API_DOCS_URL))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.openapi", is("3.0.1")))
+				.andExpect(jsonPath("$.components.schemas.PageString.required", containsInAnyOrder(
+						"totalPages", "totalElements", "size", "content", "number", "sort", "pageable",
+						"numberOfElements", "first", "last", "empty")))
 				.andExpect(content().json(getContent("results/3.0.1/app10-direct.json"), true));
 	}
 
